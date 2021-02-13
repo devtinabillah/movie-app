@@ -2,6 +2,9 @@ import "container/main.scss";
 import Icon from "components/main/Icon";
 import NowShowingTop from "components/main/NowShowingTop";
 import NowShowingMovie from "components/main/NowShowingMovie";
+import Subtitle from "components/main/Subtitle";
+import CategoryMenu from "components/main/CategoryMenu";
+import CategoryMovie from "components/main/CategoryMovie";
 
 const Main = () => {
   return (
@@ -17,7 +20,7 @@ const Main = () => {
       </div>
       <div className="main-movie">
         <NowShowingMovie
-          moviePoster="https://plchldr.co/i/500x250"
+          moviePoster="https://plchldr.co/i/700x350"
           movieTitle="Shazam!"
           movieYear="2019"
           movieCategory="Action"
@@ -57,7 +60,145 @@ const Main = () => {
           movieAgeRating="PG-13"
         />
       </div>
-      <div className></div>
+      <div className="browse-by-category">
+        <Subtitle categoryTitle="Browse by category" />
+        <div className="category-menu">
+          <CategoryMenu menu="Action" />
+          <CategoryMenu menu="Adventure" />
+          <CategoryMenu menu="Fantasy" />
+          <CategoryMenu menu="Romance" />
+        </div>
+        <div className="category-movie">
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+          <CategoryMovie
+            moviePoster="https://plchldr.co/i/175x250"
+            movieTitle="Avengers: EndGame"
+            movieYear="2019"
+            movieCategory="Action"
+            movieRating="8.5"
+            movieRatingAmount="341,611"
+          />
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,15 +1,21 @@
 .main-movie-card {
   width: 500px;
+  color: grey;
 
   .main-poster {
     height: 250px;
-    border-radius: 10px;
     margin: 0;
     padding: 0;
     position: relative;
+    overflow: hidden;
+    border-radius: 20px;
 
     img {
-      border-radius: 20px;
+      object-fit: fill;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
     }
 
     .watch-trailer {
@@ -21,6 +27,7 @@
       align-items: center;
       margin-top: 1rem;
       margin-right: 10px;
+      color: white;
 
       img {
         border-radius: 0;
@@ -35,10 +42,11 @@
     width: 500px;
 
     .left {
-      padding: 0 2rem;
+      padding: 0;
 
       h2 {
         margin: 1rem 0;
+        color: black;
       }
 
       .movie-info {
@@ -62,7 +70,7 @@
     }
 
     .right {
-      margin: 1rem 2rem;
+      margin: 1rem 1rem;
 
       :nth-child(1) {
         padding-right: 10px;

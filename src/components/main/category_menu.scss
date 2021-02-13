@@ -1,0 +1,32 @@
+.menu {
+  transition: 0.4s;
+  padding: 5px 10px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  #menu {
+    text-decoration: none;
+    color: grey;
+    font-size: small;
+  }
+}
+
+.menu:hover {
+  background-color: rgb(255, 211, 194);
+  transition: 0.4s;
+
+  #menu {
+    color: rgb(252, 90, 15);
+  }
+}
+
+.menu-active {
+  background-color: rgb(255, 211, 194);
+  transition: 0.4s;
+
+  #menu {
+    color: rgb(252, 90, 15);
+  }
+}
