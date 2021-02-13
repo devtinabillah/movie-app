@@ -1,0 +1,22 @@
+.main-container {
+  padding: 1rem;
+  width: 75%;
+
+  .main-top {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem;
+    padding-left: 1rem;
+  }
+
+  .main-movie {
+    display: flex;
+    overflow: auto;
+    white-space: nowrap;
+    width: 100%;
+  }
+}
+
+.main-movie > * + * {
+  margin-left: 2rem;
+}

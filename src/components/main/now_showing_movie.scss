@@ -1,0 +1,72 @@
+.main-movie-card {
+  width: 500px;
+
+  .main-poster {
+    height: 250px;
+    border-radius: 10px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    img {
+      border-radius: 20px;
+    }
+
+    .watch-trailer {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 333;
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+      margin-right: 10px;
+
+      img {
+        border-radius: 0;
+      }
+    }
+  }
+
+  .main-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    width: 500px;
+
+    .left {
+      padding: 0 2rem;
+
+      h2 {
+        margin: 1rem 0;
+      }
+
+      .movie-info {
+        :nth-child(2) {
+          padding: 0 10px;
+        }
+      }
+
+      .movie-rating {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+        img {
+          margin: 10px 0;
+        }
+
+        :nth-child(2) {
+          padding: 0 8px;
+        }
+      }
+    }
+
+    .right {
+      margin: 1rem 2rem;
+
+      :nth-child(1) {
+        padding-right: 10px;
+      }
+    }
+  }
+}

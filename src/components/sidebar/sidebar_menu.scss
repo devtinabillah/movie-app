@@ -1,0 +1,32 @@
+.list-menu {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-start;
+  align-items: center;
+  opacity: 50%;
+
+  .sign {
+    width: 10px;
+    height: 20px;
+    background-color: #ededf3;
+    margin-right: 2rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    margin-right: 2rem;
+  }
+}
+
+.active {
+  opacity: 100%;
+
+  .sign {
+    background-color: #b63223;
+  }
+}
