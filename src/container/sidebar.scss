@@ -1,12 +1,23 @@
 .sidebar {
-  width: 25%;
-  height: 100vh;
+  grid-column: span 3 / span 3;
   background-color: #ededf3;
+  // width: 300px;
+  height: 100%;
 
-  .sidebar-menu {
-    ul {
-      margin: 0;
-      padding: 0;
+  .sidebar-content {
+    position: fixed;
+    width: inherit;
+
+    .sidebar-logo {
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .sidebar-menu {
+      ul {
+        margin: 0;
+        padding: 0;
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 .main-container {
   padding: 1rem;
-  width: 75%;
+  grid-column: span 9 / span 9;
 
   .main-top {
     display: flex;
@@ -12,11 +12,74 @@
   .main-movie {
     display: flex;
     overflow: auto;
+    margin-left: 1rem;
     white-space: nowrap;
     width: 100%;
+  }
+
+  .main-movie::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main-movie {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  // Browse By Category
+  .browse-by-category {
+    padding-left: 1rem;
+    padding-top: 1rem;
+
+    .category-menu {
+      margin-left: 1rem;
+      display: flex;
+    }
+
+    .category-movie {
+      display: flex;
+      overflow: auto;
+      white-space: nowrap;
+      margin-top: 1rem;
+    }
+
+    .category-movie::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-movie {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  }
+
+  // Top Rated
+  .top-rated {
+    padding-top: 1rem;
+    padding-left: 1rem;
+
+    .category-movie {
+      display: flex;
+      overflow: auto;
+      white-space: nowrap;
+      margin-top: 1rem;
+    }
+
+    .category-movie::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-movie {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   }
 }
 
 .main-movie > * + * {
   margin-left: 2rem;
+}
+
+.category-movie > * + * {
+  margin-left: 1rem;
 }
