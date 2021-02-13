@@ -26,8 +26,10 @@
     scrollbar-width: none;
   }
 
+  // Browse By Category
   .browse-by-category {
     padding-left: 1rem;
+    padding-top: 1rem;
 
     .category-menu {
       margin-left: 1rem;
@@ -38,7 +40,28 @@
       display: flex;
       overflow: auto;
       white-space: nowrap;
-      // width: 100%;
+      margin-top: 1rem;
+    }
+
+    .category-movie::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-movie {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  }
+
+  // Top Rated
+  .top-rated {
+    padding-top: 1rem;
+    padding-left: 1rem;
+
+    .category-movie {
+      display: flex;
+      overflow: auto;
+      white-space: nowrap;
       margin-top: 1rem;
     }
 

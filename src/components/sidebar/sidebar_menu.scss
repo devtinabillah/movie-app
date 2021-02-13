@@ -6,6 +6,7 @@
   justify-content: flex-start;
   align-items: center;
   opacity: 50%;
+  cursor: pointer;
 
   .sign {
     width: 10px;
@@ -24,6 +25,14 @@
 }
 
 .active {
+  opacity: 100%;
+
+  .sign {
+    background-color: #b63223;
+  }
+}
+
+.list-menu:hover {
   opacity: 100%;
 
   .sign {

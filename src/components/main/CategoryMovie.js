@@ -18,7 +18,6 @@ const CategoryMovie = ({
           <h3> {movieTitle} </h3>
           <div className="movie-info">
             <small>{movieYear}</small>
-            <small>&middot;</small>
             <small>{movieCategory}</small>
           </div>
           <div className="movie-rating">

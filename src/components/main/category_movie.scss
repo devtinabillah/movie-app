@@ -22,7 +22,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0;
-    padding-left: 1rem;
+    padding-left: 10px;
     width: inherit;
 
     .left {
@@ -37,8 +37,8 @@
       .movie-info {
         margin: 10px 0;
         font-size: smaller;
-        :nth-child(2) {
-          padding: 0 10px;
+        :nth-child(1) {
+          padding-right: 20px;
         }
       }
 
