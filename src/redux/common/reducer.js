@@ -4,6 +4,7 @@ import {
   SET_ERROR,
   SET_NOW_SHOWING,
   SET_MOVIE_BY_GENRE,
+  SET_TOP_RATED,
   SET_MESSAGE,
   SHOW_LOADING,
 } from "./types";
@@ -11,6 +12,7 @@ import {
 const initialState = {
   nowShowing: [],
   moviesByGenre: [],
+  topRated: [],
   isLoading: true,
   message: "",
   error: "",
@@ -46,6 +48,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         moviesByGenre: action.payload,
+      };
+    }
+    case SET_TOP_RATED: {
+      return {
+        ...state,
+        topRated: action.payload,
       };
     }
     case SET_MESSAGE: {

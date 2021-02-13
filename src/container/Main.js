@@ -2,7 +2,11 @@ import "container/main.scss";
 import Icon from "components/main/Icon";
 import NowShowingTop from "components/main/NowShowingTop";
 import NowShowingMovie from "components/main/NowShowingMovie";
-import { getNowPlayingMovies, getMoviesWithGenre } from "../redux";
+import {
+  getNowPlayingMovies,
+  getMoviesWithGenre,
+  getTopRatedMovies,
+} from "../redux";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Subtitle from "components/main/Subtitle";
@@ -13,10 +17,13 @@ import { genres } from "utils/genres";
 const Main = () => {
   const dispatch = useDispatch();
   const [genreId, setGenreId] = useState(genres[0].id);
-  const { nowShowing, moviesByGenre } = useSelector((state) => state.common);
+  const { nowShowing, moviesByGenre, topRated } = useSelector(
+    (state) => state.common
+  );
 
   useEffect(() => {
     dispatch(getNowPlayingMovies());
+    dispatch(getTopRatedMovies());
   }, [dispatch]);
 
   useEffect(() => {
@@ -38,6 +45,7 @@ const Main = () => {
           <Icon icon="https://plchldr.co/i/24x24" />
         </div>
       </div>
+
       <div className="main-movie">
         {nowShowing.map((item) => (
           <NowShowingMovie
@@ -53,6 +61,7 @@ const Main = () => {
           />
         ))}
       </div>
+
       <div className="browse-by-category">
         <Subtitle categoryTitle="Browse by category" />
         <div className="category-menu">
@@ -83,134 +92,17 @@ const Main = () => {
       <div className="top-rated">
         <Subtitle categoryTitle="Top Rated" />
         <div className="category-movie">
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
+          {topRated.map((item) => (
+            <CategoryMovie
+              key={item.id}
+              moviePoster={item.background}
+              movieTitle={item.title}
+              movieYear={item.releaseDate}
+              movieCategory={item.genres}
+              movieRating={item.rating}
+              movieRatingAmount={item.voteCount}
+            />
+          ))}
         </div>
       </div>
     </div>
