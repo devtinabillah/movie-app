@@ -1,1 +1,1 @@
-export const NOW_SHOWING = "/user/login";
+export const NOW_SHOWING = "/movie/now_playing";

@@ -2,8 +2,18 @@ import "container/main.scss";
 import Icon from "components/main/Icon";
 import NowShowingTop from "components/main/NowShowingTop";
 import NowShowingMovie from "components/main/NowShowingMovie";
+import { getNowPlayingMovies } from "../redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const Main = () => {
+  const dispatch = useDispatch();
+  const { nowShowing } = useSelector((state) => state.common);
+
+  useEffect(() => {
+    dispatch(getNowPlayingMovies());
+  }, [dispatch]);
+
   return (
     <div className="main-container">
       <div className="main-top">
@@ -16,48 +26,21 @@ const Main = () => {
         </div>
       </div>
       <div className="main-movie">
-        <NowShowingMovie
-          moviePoster="https://plchldr.co/i/500x250"
-          movieTitle="Shazam!"
-          movieYear="2019"
-          movieCategory="Action"
-          movieRating="8.5"
-          movieRatingAmount="341,611"
-          movieDuration="143 min"
-          movieAgeRating="PG-13"
-        />
-        <NowShowingMovie
-          moviePoster="https://plchldr.co/i/500x250"
-          movieTitle="Shazam!"
-          movieYear="2019"
-          movieCategory="Action"
-          movieRating="8.5"
-          movieRatingAmount="341,611"
-          movieDuration="143 min"
-          movieAgeRating="PG-13"
-        />
-        <NowShowingMovie
-          moviePoster="https://plchldr.co/i/500x250"
-          movieTitle="Shazam!"
-          movieYear="2019"
-          movieCategory="Action"
-          movieRating="8.5"
-          movieRatingAmount="341,611"
-          movieDuration="143 min"
-          movieAgeRating="PG-13"
-        />
-        <NowShowingMovie
-          moviePoster="https://plchldr.co/i/500x250"
-          movieTitle="Shazam!"
-          movieYear="2019"
-          movieCategory="Action"
-          movieRating="8.5"
-          movieRatingAmount="341,611"
-          movieDuration="143 min"
-          movieAgeRating="PG-13"
-        />
+        {nowShowing.map((item) => (
+          <NowShowingMovie
+            key={item.id}
+            moviePoster={item.background}
+            movieTitle={item.title}
+            movieYear={item.releaseDate}
+            movieCategory={item.genres}
+            movieRating={item.rating}
+            movieRatingAmount={item.voteCount}
+            movieDuration="143 min"
+            movieAgeRating="PG-13"
+          />
+        ))}
       </div>
-      <div className></div>
+      <div className=""></div>
     </div>
   );
 };
