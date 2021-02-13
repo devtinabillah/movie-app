@@ -1,12 +1,10 @@
 import "./category_menu.scss";
 
-const CategoryMenu = ({ menu }) => {
+const CategoryMenu = ({ menu, isActive, onClick }) => {
   return (
     // tambah class menu-active kalo active (ya iya lah dev! :)
-    <div className="menu">
-      <a href="#" id="menu">
-        {menu}
-      </a>
+    <div className={`menu ${isActive && "menu-active"}`} onClick={onClick}>
+      <span id="menu">{menu}</span>
     </div>
   );
 };

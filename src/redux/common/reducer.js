@@ -2,13 +2,15 @@ import {
   HIDE_LOADING,
   RESET,
   SET_ERROR,
-  SET_DATA,
+  SET_NOW_SHOWING,
+  SET_MOVIE_BY_GENRE,
   SET_MESSAGE,
   SHOW_LOADING,
 } from "./types";
 
 const initialState = {
   nowShowing: [],
+  moviesByGenre: [],
   isLoading: true,
   message: "",
   error: "",
@@ -34,10 +36,16 @@ const reducer = (state = initialState, action) => {
         error: action.payload,
       };
     }
-    case SET_DATA: {
+    case SET_NOW_SHOWING: {
       return {
         ...state,
         nowShowing: action.payload,
+      };
+    }
+    case SET_MOVIE_BY_GENRE: {
+      return {
+        ...state,
+        moviesByGenre: action.payload,
       };
     }
     case SET_MESSAGE: {

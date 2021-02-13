@@ -2,20 +2,30 @@ import "container/main.scss";
 import Icon from "components/main/Icon";
 import NowShowingTop from "components/main/NowShowingTop";
 import NowShowingMovie from "components/main/NowShowingMovie";
-import { getNowPlayingMovies } from "../redux";
-import { useEffect } from "react";
+import { getNowPlayingMovies, getMoviesWithGenre } from "../redux";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Subtitle from "components/main/Subtitle";
 import CategoryMenu from "components/main/CategoryMenu";
 import CategoryMovie from "components/main/CategoryMovie";
+import { genres } from "utils/genres";
 
 const Main = () => {
   const dispatch = useDispatch();
-  const { nowShowing } = useSelector((state) => state.common);
+  const [genreId, setGenreId] = useState(genres[0].id);
+  const { nowShowing, moviesByGenre } = useSelector((state) => state.common);
 
   useEffect(() => {
     dispatch(getNowPlayingMovies());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getMoviesWithGenre(genreId));
+  }, [dispatch, genreId]);
+
+  const handleGenreChanges = (genreId) => {
+    setGenreId(genreId);
+  };
 
   return (
     <div className="main-container">
@@ -46,116 +56,27 @@ const Main = () => {
       <div className="browse-by-category">
         <Subtitle categoryTitle="Browse by category" />
         <div className="category-menu">
-          <CategoryMenu menu="Action" />
-          <CategoryMenu menu="Adventure" />
-          <CategoryMenu menu="Fantasy" />
-          <CategoryMenu menu="Romance" />
+          {genres.map((item) => (
+            <CategoryMenu
+              key={item.id}
+              menu={item.name}
+              isActive={item.id === genreId}
+              onClick={() => handleGenreChanges(item.id)}
+            />
+          ))}
         </div>
         <div className="category-movie">
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
-          <CategoryMovie
-            moviePoster="https://plchldr.co/i/175x250"
-            movieTitle="Avengers: EndGame"
-            movieYear="2019"
-            movieCategory="Action"
-            movieRating="8.5"
-            movieRatingAmount="341,611"
-          />
+          {moviesByGenre.map((item) => (
+            <CategoryMovie
+              key={item.id}
+              moviePoster={item.background}
+              movieTitle={item.title}
+              movieYear={item.releaseDate}
+              movieCategory={item.genres}
+              movieRating={item.rating}
+              movieRatingAmount={item.voteCount}
+            />
+          ))}
         </div>
       </div>
 
