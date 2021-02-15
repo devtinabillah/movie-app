@@ -2,7 +2,9 @@ import {
   HIDE_LOADING,
   RESET,
   SET_ERROR,
-  SET_DATA,
+  SET_NOW_SHOWING,
+  SET_MOVIE_BY_GENRE,
+  SET_TOP_RATED,
   SET_MESSAGE,
   SHOW_LOADING,
 } from "./types";
@@ -26,9 +28,23 @@ export const setError = (error) => {
   };
 };
 
-export const setData = (data) => {
+export const setNowShowing = (data) => {
   return {
-    type: SET_DATA,
+    type: SET_NOW_SHOWING,
+    payload: data,
+  };
+};
+
+export const setMoviesByGenre = (data) => {
+  return {
+    type: SET_MOVIE_BY_GENRE,
+    payload: data,
+  };
+};
+
+export const setTopRated = (data) => {
+  return {
+    type: SET_TOP_RATED,
     payload: data,
   };
 };
